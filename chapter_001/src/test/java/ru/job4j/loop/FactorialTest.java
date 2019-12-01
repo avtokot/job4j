@@ -23,7 +23,7 @@ public class FactorialTest {
     @Test
     public void whenFactorialOneThenOne() {
         Factorial factorial = new Factorial();
-        int result = factorial.calc(0);
+        int result = factorial.calc(1);
         assertThat(result, is(1));
     }
 
