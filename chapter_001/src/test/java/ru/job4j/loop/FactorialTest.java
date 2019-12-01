@@ -26,4 +26,11 @@ public class FactorialTest {
         int result = factorial.calc(0);
         assertThat(result, is(1));
     }
+
+    @Test
+    public void whenFactorialFourThen() {
+        Factorial factorial = new Factorial();
+        int result = factorial.calc(4);
+        assertThat(result, is(24));
+    }
 }
