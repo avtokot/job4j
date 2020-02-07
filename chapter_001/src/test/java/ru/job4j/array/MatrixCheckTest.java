@@ -9,14 +9,14 @@ public class MatrixCheckTest {
     @Test
     public void whenMatrixCheckTrueThenFalse() {
         char[][] input = {
-                {' ', 'X', ' ', ' ', ' '},
-                {' ', 'X', ' ', ' ', ' '},
                 {' ', ' ', 'X', ' ', ' '},
-                {' ', 'X', ' ', ' ', ' '},
-                {' ', 'X', ' ', ' ', ' '}
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', ' ', 'X', ' '},
+                {' ', ' ', 'X', ' ', ' '},
+                {' ', ' ', 'X', ' ', ' '}
         };
-//        boolean result = MatrixCheck.isWin(input);
-//        assertThat(result, is(false));
+        boolean result = MatrixCheck.isWin(input);
+        assertThat(result, is(false));
     }
 
     @Test
@@ -28,8 +28,8 @@ public class MatrixCheckTest {
                 {' ', 'X', ' ', ' ', ' '},
                 {' ', 'X', ' ', ' ', ' '}
         };
-//        boolean result = MatrixCheck.isWin(input);
-//        assertThat(result, is(true));
+        boolean result = MatrixCheck.isWin(input);
+        assertThat(result, is(true));
     }
 
     @Test
@@ -41,8 +41,8 @@ public class MatrixCheckTest {
                 {' ', ' ', 'X', ' ', ' '},
                 {' ', ' ', 'X', ' ', ' '}
         };
-//        boolean result = MatrixCheck.isWin(input);
-//        assertThat(result, is(true));
+        boolean result = MatrixCheck.isWin(input);
+        assertThat(result, is(true));
     }
 
     @Test
@@ -100,6 +100,7 @@ public class MatrixCheckTest {
         char[] expect = {'X', 'X', 'X'};
         assertThat(result, is(expect));
     }
+
     @Test
     public void whenDiagonalFalse() {
         char[][] input = {
