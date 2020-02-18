@@ -22,7 +22,7 @@ public class ConverterTest {
     }
 
     @Test
-    public void EuroToRuble() {
+    public void euroToRuble() {
         int in = 140;
         int expectedRub = 9800;
         int out = Converter.euroToRuble(in);
@@ -30,7 +30,7 @@ public class ConverterTest {
     }
 
     @Test
-    public void DollarToRuble() {
+    public void dollarToRuble() {
         int in = 140;
         int expectedRub = 8400;
         int out = Converter.dollarToRuble(in);
