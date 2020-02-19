@@ -5,11 +5,12 @@ public class Defragment {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == null) {
                 int j = i;
-                while (j < array.length && array[i] == null) {
+                while (j < array.length) {
                     j++;
-                    if (j < array.length) {
+                    if (j < array.length && array[j] != null) {
                         array[i] = array[j];
                         array[j] = null;
+                        break;
                     }
                 }
             }
