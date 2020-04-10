@@ -36,8 +36,7 @@ public class Triangle {
         double c = second.distance(third);
         double p = perimeter(a, b, c);
         if (exist(a, b, c)) {
-            Math.sqrt(p * (p - a) * (p - b) * (p - c));
-            result = -1;
+            return Math.sqrt(p * (p - a) * (p - b) * (p - c));
         }
         return result;
     }
@@ -50,7 +49,7 @@ public class Triangle {
      * @param c distance between points AC
      * @return result
      */
-    public static boolean exist(double a, double b, double c) {
+    public boolean exist(double a, double b, double c) {
         return ((a + b) > c && (b + c) > a && (c + a) > b);
     }
 }
