@@ -3,6 +3,10 @@ package ru.job4j.pojo;
 import java.util.Date;
 
 public class Student {
+    private String owner;
+    private String group;
+    private Date dateReceipt;
+
     public String getOwner() {
         return owner;
     }
@@ -26,8 +30,4 @@ public class Student {
     public void setDateReceipt(Date dateReceipt) {
         this.dateReceipt = dateReceipt;
     }
-
-    private String owner;
-    private String group;
-    private Date dateReceipt;
 }
