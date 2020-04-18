@@ -2,13 +2,9 @@ package ru.job4j.pojo;
 
 public class Shop {
     public Book[] delete(Book[] books, int index) {
-        books[index] = null;
-        for (int i = 0; i < books.length; i++) {
-            Book book = books[i];
-            if (book == null && i < books.length - 1) {
-                books[i] = books[i + 1];
-                books[i + 1] = null;
-            }
+        for (int i = index; i < books.length - 1; i++) {
+            books[i] = books[i + 1];
+            books[books.length - 1] = null;
         }
         return books;
     }
