@@ -41,4 +41,55 @@ public class TrackerTest {
         Item result = tracker.findById(item.getId());
         assertThat(result.getId(), is(item.getId()));
     }
+
+    @Test
+    public void whenDeleteItemOne() {
+        Tracker tracker = new Tracker();
+        Item one = new Item("one");
+        Item two = new Item("two");
+        Item three = new Item("three");
+        tracker.add(one);
+        tracker.add(two);
+        tracker.add(three);
+        Boolean result = tracker.deleteItem(one.getId());
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void whenDeleteItemTwo() {
+        Tracker tracker = new Tracker();
+        Item one = new Item("one");
+        Item two = new Item("two");
+        Item three = new Item("three");
+        tracker.add(one);
+        tracker.add(two);
+        tracker.add(three);
+        Boolean result = tracker.deleteItem(two.getId());
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void whenDeleteItemThree() {
+        Tracker tracker = new Tracker();
+        Item one = new Item("one");
+        Item two = new Item("two");
+        Item three = new Item("three");
+        tracker.add(one);
+        tracker.add(two);
+        tracker.add(three);
+        Boolean result = tracker.deleteItem(three.getId());
+        assertThat(result, is(true));
+    }
+
+    @Test
+    public void whenEditItem() {
+        Tracker tracker = new Tracker();
+        Item one = new Item("one");
+        tracker.add(one);
+        String name = "test";
+        System.out.println("Before replace - " + one.getName());
+        Boolean result = tracker.replaceItem(one.getId(), name);
+        assertThat(result, is(true));
+        System.out.println("After replace - " + one.getName());
+    }
 }
