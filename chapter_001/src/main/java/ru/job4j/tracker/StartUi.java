@@ -29,21 +29,32 @@ public class StartUi {
     }
 
     private void editItem(Tracker tracker, Scanner scanner) {
+        boolean result = false;
         System.out.println("==== Edit item ====");
         System.out.print("Enter id: ");
         String id = scanner.nextLine();
         System.out.print("Enter new name: ");
         String name = scanner.nextLine();
-        Boolean result = tracker.replaceItem(id, name);
-        System.out.println(result);
+        if (tracker.replaceItem(id, name)) {
+            result = true;
+            System.out.println("Request completed");
+        } else {
+            System.out.println("Application not found");
+        }
     }
 
+
     private void delItem(Tracker tracker, Scanner scanner) {
+        boolean result = false;
         System.out.println("==== Delete item ====");
         System.out.print("Enter id: ");
         String id = scanner.nextLine();
-        Boolean result = tracker.deleteItem(id);
-        System.out.println(result);
+        if (tracker.deleteItem(id)) {
+            result = true;
+            System.out.println("Request completed");
+        } else {
+            System.out.println("Application not found");
+        }
     }
 
     private void add(Tracker tracker, Scanner scanner) {
@@ -60,7 +71,7 @@ public class StartUi {
         String name = scanner.nextLine();
         Item[] names = tracker.findByName(name);
         for (int i = 0; i < names.length; i++) {
-            System.out.println(names[i].getName() + " - " + names[i].getId());
+            System.out.println(names[i]);
         }
     }
 
@@ -76,7 +87,7 @@ public class StartUi {
         System.out.println("==== Show all items ====");
         Item[] items = tracker.findAll();
         for (int i = 0; i < items.length; i++) {
-            System.out.println(items[i].getName() + " - " + items[i].getId());
+            System.out.println(items[i]);
         }
     }
 

@@ -66,7 +66,7 @@ public class Tracker {
         for (int i = 0; i < position; i++) {
             Item item = this.items[i];
             if (item.getId().equals(id)) {
-                item.setName(name);
+                item.setName(name); 
                 result = true;
             }
         }
