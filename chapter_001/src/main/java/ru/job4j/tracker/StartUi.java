@@ -29,14 +29,12 @@ public class StartUi {
     }
 
     private void editItem(Tracker tracker, Scanner scanner) {
-        boolean result = false;
         System.out.println("==== Edit item ====");
         System.out.print("Enter id: ");
         String id = scanner.nextLine();
         System.out.print("Enter new name: ");
         String name = scanner.nextLine();
         if (tracker.replaceItem(id, name)) {
-            result = true;
             System.out.println("Request completed");
         } else {
             System.out.println("Application not found");
@@ -45,12 +43,10 @@ public class StartUi {
 
 
     private void delItem(Tracker tracker, Scanner scanner) {
-        boolean result = false;
         System.out.println("==== Delete item ====");
         System.out.print("Enter id: ");
         String id = scanner.nextLine();
         if (tracker.deleteItem(id)) {
-            result = true;
             System.out.println("Request completed");
         } else {
             System.out.println("Application not found");
