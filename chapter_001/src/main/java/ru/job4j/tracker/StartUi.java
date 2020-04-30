@@ -10,17 +10,17 @@ public class StartUi {
             System.out.print("Select : ");
             int select = Integer.parseInt(scanner.nextLine());
             if (select == 1) {
-                add(tracker, scanner);
+                StartUi.add(tracker, scanner);
             } else if (select == 2) {
-                showAllItems(tracker);
+                StartUi.showAllItems(tracker);
             } else if (select == 3) {
-                editItem(tracker, scanner);
+                StartUi.editItem(tracker, scanner);
             } else if (select == 4) {
-                delItem(tracker, scanner);
+                StartUi.delItem(tracker, scanner);
             } else if (select == 5) {
-                findId(tracker, scanner);
+                StartUi.findId(tracker, scanner);
             } else if (select == 6) {
-                findName(tracker, scanner);
+                StartUi.findName(tracker, scanner);
             } else if (select == 7) {
                 System.out.println("==== Exit ====");
                 run = false;
@@ -28,7 +28,7 @@ public class StartUi {
         }
     }
 
-    private void editItem(Tracker tracker, Scanner scanner) {
+    private static void editItem(Tracker tracker, Scanner scanner) {
         System.out.println("==== Edit item ====");
         System.out.print("Enter id: ");
         String id = scanner.nextLine();
@@ -42,7 +42,7 @@ public class StartUi {
     }
 
 
-    private void delItem(Tracker tracker, Scanner scanner) {
+    private static void delItem(Tracker tracker, Scanner scanner) {
         System.out.println("==== Delete item ====");
         System.out.print("Enter id: ");
         String id = scanner.nextLine();
@@ -53,7 +53,7 @@ public class StartUi {
         }
     }
 
-    private void add(Tracker tracker, Scanner scanner) {
+    private static void add(Tracker tracker, Scanner scanner) {
         System.out.println("==== Create new item ====");
         System.out.print("Enter name: ");
         String name = scanner.nextLine();
@@ -61,7 +61,7 @@ public class StartUi {
         tracker.add(item);
     }
 
-    private void findName(Tracker tracker, Scanner scanner) {
+    private static void findName(Tracker tracker, Scanner scanner) {
         System.out.println("==== Find item by name ====");
         System.out.print("Enter name: ");
         String name = scanner.nextLine();
@@ -71,7 +71,7 @@ public class StartUi {
         }
     }
 
-    private void findId(Tracker tracker, Scanner scanner) {
+    private static void findId(Tracker tracker, Scanner scanner) {
         System.out.println("==== Find by id ====");
         System.out.print("Enter id: ");
         String id = scanner.nextLine();
@@ -79,7 +79,7 @@ public class StartUi {
         System.out.println(result.getName());
     }
 
-    private void showAllItems(Tracker tracker) {
+    private static void showAllItems(Tracker tracker) {
         System.out.println("==== Show all items ====");
         Item[] items = tracker.findAll();
         for (int i = 0; i < items.length; i++) {
