@@ -59,16 +59,25 @@ public class StartUi {
         System.out.println("==== Find item by name ====");
         String name = input.askStr("Enter name: ");
         Item[] names = tracker.findByName(name);
-        for (int i = 0; i < names.length; i++) {
-            System.out.println(names[i]);
+        if (names.length != 0) {
+            for (int i = 0; i < names.length; i++) {
+                System.out.println(names[i]);
+            }
+        } else {
+            System.out.println("Sorry, item not found :(");
         }
+
     }
 
     private static void findId(Tracker tracker, Input input) {
         System.out.println("==== Find by id ====");
         String id = input.askStr("Enter id: ");
         Item result = tracker.findById(id);
-        System.out.println(result.getName());
+        if (result != null) {
+            System.out.println(result.getName());
+        } else {
+            System.out.println("Item not found :(");
+        }
     }
 
     private static void showAllItems(Tracker tracker) {
