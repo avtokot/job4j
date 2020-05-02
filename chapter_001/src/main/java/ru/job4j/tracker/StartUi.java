@@ -8,17 +8,17 @@ public class StartUi {
             this.showMenu();
             int select = input.askInt("Select : ");
             if (select == 1) {
-                StartUi.add(tracker, input);
+                StartUi.add(input, tracker);
             } else if (select == 2) {
                 StartUi.showAllItems(tracker);
             } else if (select == 3) {
-                StartUi.editItem(tracker, input);
+                StartUi.editItem(input, tracker);
             } else if (select == 4) {
-                StartUi.delItem(tracker, input);
+                StartUi.delItem(input, tracker);
             } else if (select == 5) {
-                StartUi.findId(tracker, input);
+                StartUi.findId(input, tracker);
             } else if (select == 6) {
-                StartUi.findName(tracker, input);
+                StartUi.findName(input, tracker);
             } else if (select == 7) {
                 System.out.println("==== Exit ====");
                 run = false;
@@ -26,7 +26,7 @@ public class StartUi {
         }
     }
 
-    private static void editItem(Tracker tracker, Input input) {
+    public static void editItem(Input input, Tracker tracker) {
         System.out.println("==== Edit item ====");
         String id = input.askStr("Enter id: ");
         String name = input.askStr("Enter new name: ");
@@ -38,7 +38,7 @@ public class StartUi {
     }
 
 
-    private static void delItem(Tracker tracker, Input input) {
+    public static void delItem(Input input, Tracker tracker) {
         System.out.println("==== Delete item ====");
         String id = input.askStr("Enter id: ");
         if (tracker.deleteItem(id)) {
@@ -48,14 +48,14 @@ public class StartUi {
         }
     }
 
-    private static void add(Tracker tracker, Input input) {
+    public static void add(Input input, Tracker tracker) {
         System.out.println("==== Create new item ====");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         tracker.add(item);
     }
 
-    private static void findName(Tracker tracker, Input input) {
+    public static void findName(Input input, Tracker tracker) {
         System.out.println("==== Find item by name ====");
         String name = input.askStr("Enter name: ");
         Item[] names = tracker.findByName(name);
@@ -69,7 +69,7 @@ public class StartUi {
 
     }
 
-    private static void findId(Tracker tracker, Input input) {
+    public static void findId(Input input, Tracker tracker) {
         System.out.println("==== Find by id ====");
         String id = input.askStr("Enter id: ");
         Item result = tracker.findById(id);
@@ -80,7 +80,7 @@ public class StartUi {
         }
     }
 
-    private static void showAllItems(Tracker tracker) {
+    public static void showAllItems(Tracker tracker) {
         System.out.println("==== Show all items ====");
         Item[] items = tracker.findAll();
         for (int i = 0; i < items.length; i++) {
@@ -88,7 +88,7 @@ public class StartUi {
         }
     }
 
-    private void showMenu() {
+    public void showMenu() {
         System.out.println("Menu");
         System.out.println("1. Add new item");
         System.out.println("2. Show all items");
