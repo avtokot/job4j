@@ -4,6 +4,8 @@ import org.junit.Test;
 import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
 
+import java.util.Arrays;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -87,11 +89,11 @@ public class TrackerTest {
     public void whenEditItem() {
         Tracker tracker = new Tracker();
         Item one = new Item("one");
+        Item two = new Item("two");
         tracker.add(one);
-        String name = "test";
-        System.out.println("Before replace - " + one.getName());
-        Boolean result = tracker.replaceItem(one.getId(), name);
+        System.out.println("Before - " + one);
+        Boolean result = tracker.replaceItem(one.getId(), two);
         assertThat(result, is(true));
-        System.out.println("After replace - " + one.getName());
+        System.out.println("After - " + Arrays.toString(tracker.findAll()));
     }
 }

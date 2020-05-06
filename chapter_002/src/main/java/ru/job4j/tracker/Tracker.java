@@ -60,13 +60,15 @@ public class Tracker {
         return result;
     }
 
-    public Boolean replaceItem(String id, String name) {
+    public Boolean replaceItem(String id, Item item) {
         boolean result = false;
         for (int i = 0; i < position; i++) {
-            Item item = this.items[i];
-            if (item.getId().equals(id)) {
-                item.setName(name);
+            Item item1 = this.items[i];
+            if (item1.getId().equals(id)) {
+                this.items[i] = item;
+                item.setId(id);
                 result = true;
+                break;
             }
         }
         return result;

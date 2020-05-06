@@ -30,7 +30,8 @@ public class StartUi {
         System.out.println("==== Edit item ====");
         String id = input.askStr("Enter id: ");
         String name = input.askStr("Enter new name: ");
-        if (tracker.replaceItem(id, name)) {
+        Item item = new Item(name);
+        if (tracker.replaceItem(id, item)) {
             System.out.println("Request completed");
         } else {
             System.out.println("Application not found");
