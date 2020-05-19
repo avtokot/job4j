@@ -17,14 +17,4 @@ public class SquareTest {
                 .add("+++++")
                 .toString()));
     }
-
-    @Test
-    public void whenTriangleDraw() {
-        assertThat(new Triangle().draw(), is(new StringJoiner(System.lineSeparator())
-                .add("+")
-                .add("++")
-                .add("+++")
-                .add("++++")
-                .toString()));
-    }
 }
