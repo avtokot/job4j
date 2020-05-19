@@ -7,13 +7,8 @@ public class StartUi {
         while (run) {
             this.showMenu(actions);
             int select = input.askInt("Select : ");
-            if (select == 6) {
-                System.out.println("Exit");
-                run = false;
-            } else {
-                UserAction action = actions[select];
-                run = action.execute(input, tracker);
-            }
+            UserAction action = actions[select];
+            run = action.execute(input, tracker);
         }
     }
 
@@ -142,6 +137,20 @@ public class StartUi {
         }
     }
 
+    public static class ExitAction implements UserAction {
+
+        @Override
+        public String name() {
+            return "Exit";
+        }
+
+        @Override
+        public boolean execute(Input input, Tracker tracker) {
+            System.out.println("Exit program");
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
@@ -151,7 +160,8 @@ public class StartUi {
                 new EditAction(),
                 new DeleteAction(),
                 new FindIdAction(),
-                new FindByNameAction()
+                new FindByNameAction(),
+                new ExitAction()
         };
         new StartUi().init(input, tracker, actions);
     }
