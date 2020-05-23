@@ -28,11 +28,11 @@ public class PaintTest {
     @Test
     public void whenDrawSquare() {
         new Paint().draw(new Square());
-        assertThat(new String(out.toByteArray()), is(new StringJoiner(System.lineSeparator())
+        assertThat(new String(out.toByteArray()), is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("+++++")
                 .add("+   +")
                 .add("+   +")
-                .add("+++++\r\n")
+                .add("+++++")
                 .toString()
         ));
     }
@@ -40,11 +40,11 @@ public class PaintTest {
     @Test
     public void whenDrawTriangle() {
         new Paint().draw(new Triangle());
-        assertThat(new String(out.toByteArray()), is(new StringJoiner(System.lineSeparator())
+        assertThat(new String(out.toByteArray()), is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("+")
                 .add("++")
                 .add("+++")
-                .add("++++\r\n")
+                .add("++++")
                 .toString()
         ));
     }
