@@ -1,15 +1,13 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class Tracker {
-    private final Item[] items = new Item[100];
-    private int position = 0;
+    private final List<Item> items = new ArrayList<>();
 
     public Item add(Item item) {
         item.setId(generatedId());
-        this.items[position++] = item;
+        this.items.add(item);
         return item;
     }
 
@@ -18,26 +16,22 @@ public class Tracker {
         return String.valueOf(random.nextLong() + System.currentTimeMillis());
     }
 
-    public Item[] findAll() {
-        return Arrays.copyOf(items, position);
+    public List<Item> findAll() {
+        return items;
     }
 
-    public Item[] findByName(String key) {
-        Item[] equalsName = new Item[this.items.length];
-        int size = 0;
-        for (int i = 0; i < position; i++) {
-            Item name = this.items[i];
+    public List<Item> findByName(String key) {
+        List<Item> equalsName = new ArrayList<>();
+        for (Item name : items) {
             if (name.getName().equals(key)) {
-                equalsName[size] = name;
-                size++;
+                equalsName.add(name);
             }
         }
-        return Arrays.copyOf(equalsName, size);
+        return equalsName;
     }
 
     public Item findById(String id) {
-        for (int i = 0; i < position; i++) {
-            Item item = this.items[i];
+        for (Item item : items) {
             if (item.getId().equals(id)) {
                 return item;
             }
@@ -47,12 +41,9 @@ public class Tracker {
 
     public Boolean deleteItem(String id) {
         boolean result = false;
-        for (int i = 0; i < position; i++) {
-            Item item = this.items[i];
+        for (Item item : items) {
             if (item.getId().equals(id)) {
-                this.items[items.length - 1] = null;
-                position--;
-                System.arraycopy(items, i + 1, items, i, items.length - i - 1);
+                this.items.remove(item);
                 result = true;
                 break;
             }
@@ -60,13 +51,12 @@ public class Tracker {
         return result;
     }
 
-    public Boolean replaceItem(String id, Item item) {
+    public Boolean replaceItem(String id, Item anotherItem) {
         boolean result = false;
-        for (int i = 0; i < position; i++) {
-            Item item1 = this.items[i];
-            if (item1.getId().equals(id)) {
-                this.items[i] = item;
-                item.setId(id);
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getId().equals(id)) {
+                anotherItem.setId(id);
+                items.set(i, anotherItem);
                 result = true;
                 break;
             }

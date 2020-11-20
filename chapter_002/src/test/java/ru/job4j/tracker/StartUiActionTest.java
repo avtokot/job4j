@@ -46,7 +46,7 @@ public class StartUiActionTest {
         ShowAllAction allItems = new ShowAllAction();
         allItems.execute(new StubInput(new String[]{}), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add(item.getName() + " - " + item.getId())
+                .add(item.getName() + " : " + item.getId())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
     }
@@ -59,7 +59,7 @@ public class StartUiActionTest {
         FindByNameAction findName = new FindByNameAction();
         findName.execute(new StubInput(new String[]{"Fix bug"}), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add(item.getName() + " - " + item.getId())
+                .add(item.getName() + " : " + item.getId())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
     }

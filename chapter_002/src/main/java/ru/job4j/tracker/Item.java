@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
-public class Item {
+import java.util.ArrayList;
+
+public class Item extends ArrayList<Item> {
     private String name;
     private String id;
 
@@ -26,6 +28,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return name + " - " + id;
+        return name + " : " + id;
     }
 }
