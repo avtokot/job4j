@@ -7,7 +7,7 @@ public class Tracker {
 
     public Item add(Item item) {
         item.setId(generatedId());
-        this.items.add(item);
+        items.add(item);
         return item;
     }
 
@@ -43,7 +43,7 @@ public class Tracker {
         boolean result = false;
         for (Item item : items) {
             if (item.getId().equals(id)) {
-                this.items.remove(item);
+                items.remove(item);
                 result = true;
                 break;
             }
