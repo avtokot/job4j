@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+
 public class StartUiTest {
     @Test
     public void whenAddItem() {
@@ -13,9 +14,9 @@ public class StartUiTest {
         Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
         new CreateAction().execute(input, tracker);
-//        Item created = tracker.findAll()[0];
+        Item created = tracker.findAll().get(0);
         Item expected = new Item("Fix PC");
-//        assertThat(created.getName(), is(expected.getName()));
+        assertThat(created.getName(), is(expected.getName()));
     }
 
     @Test
@@ -24,9 +25,9 @@ public class StartUiTest {
         Item item = new Item("new Item");
         tracker.add(item);
         String[] answers = {item.getId(), "replaced item"};
-//        new EditAction().execute(new StubInput(answers), tracker);
-//        Item replaced = tracker.findById(item.getId());
-//        assertThat(replaced.getName(), is("replaced item"));
+        new EditAction().execute(new StubInput(answers), tracker);
+        Item replaced = tracker.findById(item.getId());
+        assertThat(replaced.getName(), is("replaced item"));
     }
 
     @Test
@@ -35,9 +36,9 @@ public class StartUiTest {
         Item item = new Item("new Item");
         tracker.add(item);
         String[] answers = {item.getId()};
-//        new DeleteAction().execute(new StubInput(answers), tracker);
-//        Item deleted = tracker.findById(item.getId());
-//        assertThat(deleted, is(nullValue()));
+        new DeleteAction().execute(new StubInput(answers), tracker);
+        Item deleted = tracker.findById(item.getId());
+        assertThat(deleted, is(nullValue()));
     }
 
     @Test
