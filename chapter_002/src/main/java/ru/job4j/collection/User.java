@@ -9,6 +9,11 @@ public class User implements Comparable<User> {
     private String name;
     private int age;
 
+    @Override
+    public String toString() {
+        return name + " : " + age;
+    }
+
     public User(String name, int age) {
         this.name = name;
         this.age = age;
@@ -30,9 +35,9 @@ public class User implements Comparable<User> {
     @Override
     public int compareTo(@NotNull User anotherUser) {
         int result;
-        result = this.age - anotherUser.age;
-        if (this.name.equals(anotherUser.name)) {
-            result = this.name.compareTo(anotherUser.name);
+        result = this.name.compareTo(anotherUser.name);
+        if (result == 0) {
+            result = this.age - anotherUser.age;
         }
         return result;
     }

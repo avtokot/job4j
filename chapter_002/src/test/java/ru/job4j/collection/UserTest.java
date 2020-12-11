@@ -16,7 +16,6 @@ public class UserTest {
         Set<User> users = new TreeSet<>();
         users.add(new User("Petr", 32));
         users.add(new User("Ivan", 31));
-        users.add(new User("Ivan", 33));
         Iterator<User> iterator = users.iterator();
         assertThat(iterator.next(), is(new User("Ivan", 31)));
         assertThat(iterator.next(), is(new User("Petr", 32)));
