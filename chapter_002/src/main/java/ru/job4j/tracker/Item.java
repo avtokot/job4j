@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 import java.util.ArrayList;
 
-public class Item extends ArrayList<Item> implements Comparable<Item>{
+public class Item extends ArrayList<Item> implements Comparable<Item> {
     private String name;
     private String id;
 
