@@ -1,12 +1,19 @@
 package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
-public class Item extends ArrayList<Item> implements Comparable<Item> {
+public class Item implements Comparable<Item> {
     private String name;
     private String id;
     private final LocalDateTime created = LocalDateTime.now();
+
+    public Item() {
+
+    }
+
+    public Item(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
@@ -24,12 +31,8 @@ public class Item extends ArrayList<Item> implements Comparable<Item> {
         this.id = id;
     }
 
-    public Item(String name) {
-        this.name = name;
-    }
-
-    public Item() {
-
+    public LocalDateTime getCreated() {
+        return created;
     }
 
     @Override
@@ -41,9 +44,5 @@ public class Item extends ArrayList<Item> implements Comparable<Item> {
     @Override
     public int compareTo(Item anotherId) {
         return Long.valueOf(id).compareTo(Long.valueOf(anotherId.getId()));
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
     }
 }
