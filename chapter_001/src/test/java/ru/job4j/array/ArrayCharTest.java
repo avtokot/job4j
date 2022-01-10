@@ -2,8 +2,9 @@ package ru.job4j.array;
 
 import org.junit.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 public class ArrayCharTest {
     @Test
@@ -12,8 +13,7 @@ public class ArrayCharTest {
         char[] word = {'H', 'e', 'l', 'l', 'o'};
         char[] pref = {'H', 'e'};
         boolean result = arrayChar.startWith(word, pref);
-        boolean expect = true;
-        assertThat(result, is(expect));
+        assertThat(result, is(true));
     }
 
     @Test
@@ -22,7 +22,6 @@ public class ArrayCharTest {
         char[] word = {'H', 'e', 'l', 'l', 'o'};
         char[] pref = {'H', 'i'};
         boolean result = arrayChar.startWith(word, pref);
-        boolean expect = false;
-        assertThat(result, is(expect));
+        assertThat(result, is(false));
     }
 }

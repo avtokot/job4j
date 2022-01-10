@@ -1,10 +1,11 @@
 package ru.job4j.array;
 
 import org.junit.Test;
-import ru.job4j.array.EndsWith;
 
+
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 public class EndsWithTest {
     @Test
@@ -13,8 +14,7 @@ public class EndsWithTest {
         char[] word = {'H', 'e', 'l', 'l', 'o'};
         char[] post = {'l', 'o'};
         boolean result = endsWith.endsWith(word, post);
-        boolean expect = true;
-        assertThat(result, is(expect));
+        assertThat(result, is(true));
     }
 
     @Test
@@ -23,7 +23,6 @@ public class EndsWithTest {
         char[] word = {'H', 'e', 'l', 'l', 'o'};
         char[] post = {'l', 'i'};
         boolean result = endsWith.endsWith(word, post);
-        boolean expect = false;
-        assertThat(result, is(expect));
+        assertThat(result, is(false));
     }
 }

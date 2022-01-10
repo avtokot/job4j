@@ -2,8 +2,9 @@ package ru.job4j.array;
 
 import org.junit.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+
 
 public class CheckTest {
     @Test
@@ -11,8 +12,7 @@ public class CheckTest {
         Check check = new Check();
         boolean[] arrTrue = {true, true, true};
         boolean result = check.mono(arrTrue);
-        boolean expect = true;
-        assertThat(result, is(expect));
+        assertThat(result, is(true));
     }
 
     @Test
@@ -20,8 +20,7 @@ public class CheckTest {
         Check check = new Check();
         boolean[] arrFalseAndTrue = {false, false, true};
         boolean result = check.mono(arrFalseAndTrue);
-        boolean expect = false;
-        assertThat(result, is(expect));
+        assertThat(result, is(false));
     }
 
     @Test
@@ -29,8 +28,7 @@ public class CheckTest {
         Check check = new Check();
         boolean[] arrTrue = {false, false, false};
         boolean result = check.mono(arrTrue);
-        boolean expect = true;
-        assertThat(result, is(expect));
+        assertThat(result, is(true));
     }
 
     @Test
@@ -38,8 +36,7 @@ public class CheckTest {
         Check check = new Check();
         boolean[] arrEven = {true, true, true, true};
         boolean result = check.mono(arrEven);
-        boolean expect = true;
-        assertThat(result, is(expect));
+        assertThat(result, is(true));
     }
 
     @Test
@@ -47,7 +44,6 @@ public class CheckTest {
         Check check = new Check();
         boolean[] arrEven = {false, true, false, true};
         boolean result = check.mono(arrEven);
-        boolean expect = false;
-        assertThat(result, is(expect));
+        assertThat(result, is(false));
     }
 }
