@@ -31,6 +31,4 @@ public class Calculator {
         calculator.divide(2);
         calculator.sumAllOperation();
     }
-
 }
-    
