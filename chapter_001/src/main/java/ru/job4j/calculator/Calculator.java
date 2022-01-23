@@ -3,11 +3,11 @@ package ru.job4j.calculator;
 public class Calculator {
     private static int x = 5;
 
-    public static int sum(int x, int y) {
+    public static int sum(int y) {
         return x + y;
     }
 
-    public static int multiply(int x, int y) {
+    public static int multiply(int y) {
         return x * y;
     }
 
@@ -20,12 +20,12 @@ public class Calculator {
     }
 
     public int sumAllOperation(int a) {
-        return sum(x, a) + multiply(x, a) + minus(a) + divide(a);
+        return sum(a) + multiply(a) + minus(a) + divide(a);
     }
 
     public static void main(String[] args) {
-        sum(x, 5);
-        multiply(x, 6);
+        sum( 5);
+        multiply(6);
         minus(3);
         Calculator calculator = new Calculator();
         calculator.divide(2);
