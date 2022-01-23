@@ -24,7 +24,7 @@ public class Calculator {
     }
 
     public static void main(String[] args) {
-        sum( 5);
+        sum(5);
         multiply(6);
         minus(3);
         Calculator calculator = new Calculator();
