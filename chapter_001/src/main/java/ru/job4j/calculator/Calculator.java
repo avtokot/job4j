@@ -3,32 +3,32 @@ package ru.job4j.calculator;
 public class Calculator {
     private static int x = 5;
 
-    private static int sum(int a, int b) {
-        return a + b;
+    public static int sum(int x, int y) {
+        return x + y;
     }
 
-    private static int multiply(int a, int b) {
-        return a * b;
+    public static int multiply(int x, int y) {
+        return x * y;
     }
 
-    private static int minus(int a) {
+    public static int minus(int a) {
         return a - x;
     }
 
-    private int divide(int a) {
+    public int divide(int a) {
         return a / x;
     }
 
-    private int sumAllOperation() {
-        return sum(4, 5) + multiply(3, 6) + minus(3) + divide(2);
+    public int sumAllOperation(int a) {
+        return sum(x, a) + multiply(x, a) + minus(a) + divide(a);
     }
 
     public static void main(String[] args) {
-        sum(4, 5);
-        multiply(3, 6);
+        sum(x, 5);
+        multiply(x, 6);
         minus(3);
         Calculator calculator = new Calculator();
         calculator.divide(2);
-        calculator.sumAllOperation();
+        calculator.sumAllOperation(4);
     }
 }
