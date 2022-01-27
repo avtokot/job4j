@@ -7,6 +7,7 @@ public class FindEl {
         for (int i = 0; i < val.length; i++) {
             if (val[i].equals(key)) {
                 result = 1;
+                break;
             }
         }
         if (result == -1) {
@@ -21,12 +22,6 @@ public class FindEl {
             indexOf(str, "Cold");
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
-        }
-    }
-
-    private static class ElementNotFoundException extends Exception {
-        public ElementNotFoundException(String message) {
-            super(message);
         }
     }
 }
