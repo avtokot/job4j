@@ -9,8 +9,7 @@ public class FactRec {
     public static int calc(int i) {
         if (i == 0 || i == 1) {
             return 1;
-        } else {
-            return calc(i - 1) * i;
         }
+        return calc(i - 1) * i;
     }
 }
