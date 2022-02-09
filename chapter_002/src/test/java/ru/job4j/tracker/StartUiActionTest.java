@@ -28,9 +28,10 @@ public class StartUiActionTest {
 
     @Test
     public void whenCheckOutputMenu() {
+        Output output = new ConsoleOutput();
         StubInput input = new StubInput(new String[]{"0"});
         StubAction action = new StubAction();
-        new StartUi().init(input, new Tracker(), new UserAction[]{action});
+        new StartUi(output).init(input, new Tracker(), new UserAction[]{action});
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu")
                 .add("0. Create new item")
@@ -40,10 +41,11 @@ public class StartUiActionTest {
 
     @Test
     public void whenShowAllAction() {
+        Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
         Item item = new Item("Fix bug");
         tracker.add(item);
-        ShowAllAction allItems = new ShowAllAction();
+        ShowAllAction allItems = new ShowAllAction(output);
         allItems.execute(new StubInput(new String[]{}), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add(item.getName() + " : " + item.getId())
@@ -53,10 +55,11 @@ public class StartUiActionTest {
 
     @Test
     public void whenFindByNameAction() {
+        Output output = new ConsoleOutput();
         Tracker tracker = new Tracker();
         Item item = new Item("Fix bug");
         tracker.add(item);
-        FindByNameAction findName = new FindByNameAction();
+        FindByNameAction findName = new FindByNameAction(output);
         findName.execute(new StubInput(new String[]{"Fix bug"}), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add(item.getName() + " : " + item.getId())

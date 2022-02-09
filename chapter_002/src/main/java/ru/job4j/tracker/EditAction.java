@@ -1,6 +1,11 @@
 package ru.job4j.tracker;
 
 public class EditAction implements UserAction {
+    private final Output out;
+
+    public EditAction(Output out) {
+        this.out = out;
+    }
 
     @Override
     public String name() {
@@ -13,9 +18,9 @@ public class EditAction implements UserAction {
         String name = input.askStr("Enter new name: ");
         Item item = new Item(name);
         if (tracker.replaceItem(id, item)) {
-            System.out.println("Request completed");
+            out.println("Request completed");
         } else {
-            System.out.println("Application not found");
+            out.println("Application not found");
         }
         return true;
     }

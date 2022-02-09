@@ -3,6 +3,11 @@ package ru.job4j.tracker;
 import java.util.List;
 
 public class ShowAllAction implements UserAction {
+    private final Output out;
+
+    public ShowAllAction(Output out) {
+        this.out = out;
+    }
 
     @Override
     public String name() {
@@ -13,7 +18,7 @@ public class ShowAllAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         List<Item> items = tracker.findAll();
         for (Item item : items) {
-            System.out.println(item);
+            out.println(item);
         }
         return true;
     }
