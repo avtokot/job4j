@@ -21,7 +21,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>ru.job4j.tracker.StartUi</mainClass>
+                  <mainClass>ru.job4j.tracker.StartUI</mainClass>
                 </transformer>
               </transformers>
             </configuration>

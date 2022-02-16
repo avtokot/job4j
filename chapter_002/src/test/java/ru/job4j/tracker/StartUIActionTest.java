@@ -11,7 +11,7 @@ import java.util.StringJoiner;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class StartUiActionTest {
+public class StartUIActionTest {
 
     ByteArrayOutputStream out = new ByteArrayOutputStream();
     PrintStream printStream = System.out;
@@ -31,7 +31,7 @@ public class StartUiActionTest {
         Output output = new ConsoleOutput();
         StubInput input = new StubInput(new String[]{"0"});
         StubAction action = new StubAction();
-        new StartUi(output).init(input, new Tracker(), new UserAction[]{action});
+        new StartUI(output).init(input, new Tracker(), new UserAction[]{action});
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu")
                 .add("0. Create new item")
@@ -65,5 +65,28 @@ public class StartUiActionTest {
                 .add(item.getName() + " : " + item.getId())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
+    }
+
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        StubInput input = new StubInput(
+                new String[]{"7", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = new UserAction[]{
+                new ExitAction(out)
+        };
+        new StartUI(out).init(input, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                        "Menu." + ln
+                                + "0. Exit" + ln
+                                + "Wrong input, you can select: 0 .. 0" + ln
+                                + "Menu." + ln
+                                + "0. Exit" + ln
+                                + "Exit program" + ln
+                )
+        );
     }
 }

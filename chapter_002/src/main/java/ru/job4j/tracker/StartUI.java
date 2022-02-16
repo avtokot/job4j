@@ -2,10 +2,10 @@ package ru.job4j.tracker;
 
 import java.time.format.DateTimeFormatter;
 
-public class StartUi {
+public class StartUI {
     private final Output out;
 
-    public StartUi(Output out) {
+    public StartUI(Output out) {
         this.out = out;
     }
 
@@ -13,14 +13,18 @@ public class StartUi {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
-            int select = input.askInt("Select : ", actions.length);
+            int select = input.askInt("Select : ");
+            if (select < 0 || select >= actions.length) {
+                out.println("Wrong input, you can select: 0 .. " + (actions.length - 1));
+                continue;
+            }
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
     }
 
     public void showMenu(UserAction[] actions) {
-        out.println("Menu");
+        out.println("Menu.");
         for (int i = 0; i < actions.length; i++) {
             out.println(i + ". " + actions[i].name());
         }
@@ -41,7 +45,7 @@ public class StartUi {
                 new FindByNameAction(output),
                 new ExitAction(output)
         };
-        new StartUi(output).init(validate, tracker, actions);
+        new StartUI(output).init(validate, tracker, actions);
     }
 
     private static void showDateAndTime() {
