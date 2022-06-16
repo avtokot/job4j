@@ -37,4 +37,15 @@ public class ValidateInputTest {
         input.askInt("Select : ", 7);
         assertThat(in.toString(), is(String.format("Please select key from menu%n")));
     }
+
+  /*  @Test
+    public void whenInvalidInput() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[]{"one", "1"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected, is(1));
+    }*/
 }
