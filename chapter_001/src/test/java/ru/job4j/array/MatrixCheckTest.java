@@ -1,116 +1,54 @@
 package ru.job4j.array;
 
+import org.junit.Assert;
 import org.junit.Test;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-
 
 public class MatrixCheckTest {
     @Test
-    public void whenMatrixCheckTrueThenFalse() {
-        char[][] input = {
-                {' ', ' ', 'X', ' ', ' '},
-                {' ', ' ', 'X', ' ', ' '},
-                {' ', ' ', ' ', 'X', ' '},
-                {' ', ' ', 'X', ' ', ' '},
-                {' ', ' ', 'X', ' ', ' '}
-        };
-        boolean result = MatrixCheck.isWin(input);
-        assertThat(result, is(false));
-    }
-
-    @Test
-    public void whenMatrixCheckTrueThenTrue() {
-        char[][] input = {
-                {' ', 'X', ' ', ' ', ' '},
-                {' ', 'X', ' ', ' ', ' '},
-                {' ', 'X', ' ', ' ', ' '},
-                {' ', 'X', ' ', ' ', ' '},
-                {' ', 'X', ' ', ' ', ' '}
-        };
-        boolean result = MatrixCheck.isWin(input);
-        assertThat(result, is(true));
-    }
-
-    @Test
-    public void whenDataMonoTrueThenTrue() {
-        char[][] input = {
-                {' ', ' ', ' ', ' ', ' '},
-                {'X', 'X', 'X', 'X', 'X'},
-                {' ', ' ', 'X', ' ', ' '},
-                {' ', ' ', 'X', ' ', ' '},
-                {' ', ' ', 'X', ' ', ' '}
-        };
-        boolean result = MatrixCheck.isWin(input);
-        assertThat(result, is(true));
-    }
-
-    @Test
-    public void whenMonoVerticalTrue() {
+    public void whenVerticalTrue() {
         char[][] input = {
                 {' ', ' ', 'X'},
                 {' ', ' ', 'X'},
-                {' ', ' ', 'X'}
+                {' ', ' ', 'X'},
         };
-        boolean result = MatrixCheck.monoVertical(input, 2);
-        assertThat(result, is(true));
+        int column = 2;
+        boolean result = MatrixCheck.monoVertical(input, column);
+        Assert.assertTrue(result);
     }
 
     @Test
-    public void whenMonoVerticalFalse() {
+    public void whenVerticalFalse() {
         char[][] input = {
+                {' ', ' ', 'X'},
                 {' ', ' ', 'X'},
                 {' ', 'X', ' '},
-                {' ', ' ', 'X'}
         };
-        boolean result = MatrixCheck.monoVertical(input, 2);
-        assertThat(result, is(false));
+        int column = 2;
+        boolean result = MatrixCheck.monoVertical(input, column);
+        Assert.assertFalse(result);
     }
 
     @Test
-    public void whenHasMonoHorizontalTrue() {
+    public void whenHorizontalTrue() {
         char[][] input = {
                 {' ', ' ', ' '},
                 {'X', 'X', 'X'},
-                {' ', ' ', ' '}
+                {' ', ' ', ' '},
         };
-        boolean result = MatrixCheck.monoHorizontal(input, 1);
-        assertThat(result, is(true));
+        int row = 1;
+        boolean result = MatrixCheck.monoHorizontal(input, row);
+        Assert.assertTrue(result);
     }
 
     @Test
-    public void whenHasMonoHorizontalFalse() {
+    public void whenHorizontalFalse() {
         char[][] input = {
                 {' ', ' ', ' '},
                 {'X', 'X', ' '},
-                {' ', ' ', 'X'}
-        };
-        boolean result = MatrixCheck.monoHorizontal(input, 1);
-        assertThat(result, is(false));
-    }
-
-    @Test
-    public void whenDiagonalTrue() {
-        char[][] input = {
-                {'X', ' ', ' '},
-                {' ', 'X', ' '},
-                {' ', ' ', 'X'}
-        };
-        char[] result = MatrixCheck.diagonal(input);
-        char[] expect = {'X', 'X', 'X'};
-        assertThat(result, is(expect));
-    }
-
-    @Test
-    public void whenDiagonalFalse() {
-        char[][] input = {
-                {'X', ' ', ' '},
                 {' ', ' ', 'X'},
-                {' ', ' ', 'X'}
         };
-        char[] result = MatrixCheck.diagonal(input);
-        char[] expect = {'X', ' ', 'X'};
-        assertThat(result, is(expect));
+        int row = 1;
+        boolean result = MatrixCheck.monoHorizontal(input, row);
+        Assert.assertFalse(result);
     }
 }
